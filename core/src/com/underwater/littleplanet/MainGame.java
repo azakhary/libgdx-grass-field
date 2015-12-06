@@ -28,7 +28,7 @@ public class MainGame extends ApplicationAdapter {
 	private ModelInstance planetInstance;
 	private Environment environment;
 
-	private CameraInputController camController;
+	private CameraController camController;
 	private DefaultShader shader;
 	private DefaultShader atmosphereShader;
 
@@ -60,7 +60,8 @@ public class MainGame extends ApplicationAdapter {
 		camera.far = 300f;
 		camera.update();
 
-		camController = new CameraInputController(camera);
+		camController = new CameraController(camera);
+		camController.target.set(camera.position);
 		Gdx.input.setInputProcessor(camController);
 
 		grassTexture = new Texture(Gdx.files.internal("grass.png"));
