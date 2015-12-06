@@ -19,6 +19,7 @@ void main() {
     if(a_texCoord.y < 1) {
         a_position.x += cos(u_time+a_position.x)/4.0+sin(u_time+a_position.x)/4.0;
         a_position.z += cos(u_time+a_position.z)/4.0+sin(u_time+a_position.z)/4.0;
+       // a_position.y -= cos(u_time+a_position.z)/8.0;
     }
 
     gl_Position = u_projViewTrans * u_worldTrans * vec4(a_position, 1.0);

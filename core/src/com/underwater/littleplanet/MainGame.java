@@ -172,6 +172,7 @@ public class MainGame extends ApplicationAdapter {
 
 		//renderable.worldTransform.setToRotation(Vector3.Y, rotation);
 
+		/*
 		if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
 			verticalSpeed = 12;
 		}
@@ -188,6 +189,7 @@ public class MainGame extends ApplicationAdapter {
 		camController.target.set(camera.position);
 
 		camera.update();
+		*/
 
 	}
 
