@@ -17,7 +17,7 @@ import com.badlogic.gdx.math.Vector3;
 
 public class MainGame extends ApplicationAdapter {
 
-	private PerspectiveCamera camera;
+	private Camera camera;
 	private RenderContext renderContext;
 	private Renderable renderable;
 
@@ -56,12 +56,15 @@ public class MainGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		camera = new PerspectiveCamera(75, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		//camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.position.set(10f, -1f, 10f);
 		camera.rotate(camera.position, 180);
 		camera.lookAt(0f, 0f, 0f);
 		camera.near = 0.1f;
 		camera.far = 300f;
 		camera.update();
+
+		//((OrthographicCamera)camera).zoom = 1f/30f;
 
 		camController = new CameraController(camera);
 		camController.target.set(camera.position);
