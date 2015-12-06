@@ -25,13 +25,15 @@ void main() {
     gl_FragColor.rgb = color.rgb * u_ambientColor;
 
     //gl_FragColor.r = gl_FragColor.r + (sin(u_time)+1.0)*(1.0/6.0);
-    //gl_FragColor.g = gl_FragColor.g + (cos(u_time)+1.0)*(1.0/6.0);
+    gl_FragColor.g = gl_FragColor.g + (0.8+1.0)*(1.0/6.0);
     //gl_FragColor.b = gl_FragColor.b + (cos(u_time)+1.0)*(1.0/6.0);
+
+   //gl_FragColor.b =1;
 
     if( gl_FragColor.a < 0.5 + noiseColor.r * 0.3) {
         discard;
     } else {
-        gl_FragColor.a = mix(gl_FragColor.a, 0, far/25.0);
+        gl_FragColor.a = mix(gl_FragColor.a, 0, far/20.0);
         gl_FragColor.a = gl_FragColor.a*(1.0/2.2);
     }
 

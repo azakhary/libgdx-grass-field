@@ -120,8 +120,14 @@ public class CameraController extends GestureDetector  {
     public void update () {
         if (rotateRightPressed || rotateLeftPressed || forwardPressed || backwardPressed) {
             final float delta = Gdx.graphics.getDeltaTime();
-            if (rotateRightPressed) camera.rotate(camera.up, -delta * rotateAngle);
-            if (rotateLeftPressed) camera.rotate(camera.up, delta * rotateAngle);
+            if (rotateRightPressed) {
+                //camera.rotate(camera.up, -delta * rotateAngle);
+                camera.rotate(camera.up, 2);
+            }
+            if (rotateLeftPressed) {
+                //camera.rotate(camera.up, delta * rotateAngle);
+                camera.rotate(camera.up, -2);
+            }
             if (forwardPressed) {
                 camera.translate(tmpV1.set(camera.direction).scl(delta * translateUnits));
                 if (forwardTarget) target.add(tmpV1);
@@ -130,6 +136,7 @@ public class CameraController extends GestureDetector  {
                 camera.translate(tmpV1.set(camera.direction).scl(-delta * translateUnits));
                 if (forwardTarget) target.add(tmpV1);
             }
+            camera.normalizeUp();
             if (autoUpdate) camera.update();
         }
     }

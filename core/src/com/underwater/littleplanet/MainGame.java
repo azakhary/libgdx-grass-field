@@ -2,6 +2,7 @@ package com.underwater.littleplanet;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
@@ -49,6 +50,8 @@ public class MainGame extends ApplicationAdapter {
 
 	private Texture grassTexture;
 	private Texture noiseTexture;
+
+	private float verticalSpeed = 0;
 
 	@Override
 	public void create () {
@@ -165,6 +168,24 @@ public class MainGame extends ApplicationAdapter {
 		modelBatch.end();
 
 		//renderable.worldTransform.setToRotation(Vector3.Y, rotation);
+
+		if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+			verticalSpeed = 12;
+		}
+
+		verticalSpeed -= 25 * Gdx.graphics.getDeltaTime();
+
+		camera.position.y-=verticalSpeed*Gdx.graphics.getDeltaTime();
+
+		if(camera.position.y > -1f) {
+			camera.position.y = -1f;
+			verticalSpeed = 0;
+		}
+
+		camController.target.set(camera.position);
+
+		camera.update();
+
 	}
 
 	@Override
