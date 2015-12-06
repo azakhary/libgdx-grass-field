@@ -52,10 +52,11 @@ public class GrassModel {
         public Vector3 normal;
 
         public Quad(Vector3 pos, float angle) {
-            Vector3 pos1 = new Vector3(pos.x-MathUtils.cosDeg(angle) * 1f, pos.y-1f, pos.z+MathUtils.sinDeg(angle) * 1f);
-            Vector3 pos2 = new Vector3(pos.x-MathUtils.cosDeg(angle) * 1f, pos.y+1f, pos.z+MathUtils.sinDeg(angle) * 1f);
-            Vector3 pos3 = new Vector3(pos.x+MathUtils.cosDeg(angle) * 1f, pos.y+1f, pos.z-MathUtils.sinDeg(angle) * 1f);
-            Vector3 pos4 = new Vector3(pos.x+MathUtils.cosDeg(angle) * 1f, pos.y-1f, pos.z-MathUtils.sinDeg(angle) * 1f);
+            float size = MathUtils.random(0.5f, 1.7f);
+            Vector3 pos1 = new Vector3(pos.x-MathUtils.cosDeg(angle) * size, pos.y-size, pos.z+MathUtils.sinDeg(angle) * size);
+            Vector3 pos2 = new Vector3(pos.x-MathUtils.cosDeg(angle) * size, pos.y+size, pos.z+MathUtils.sinDeg(angle) * size);
+            Vector3 pos3 = new Vector3(pos.x+MathUtils.cosDeg(angle) * size, pos.y+size, pos.z-MathUtils.sinDeg(angle) * size);
+            Vector3 pos4 = new Vector3(pos.x+MathUtils.cosDeg(angle) * size, pos.y-size, pos.z-MathUtils.sinDeg(angle) * size);
 
             Vector3 pos2c = new Vector3(pos2);
             Vector3 pos3c = new Vector3(pos3);
